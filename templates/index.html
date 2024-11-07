@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container">
+    <header class="hero">
+        <h1 class="names">Анна & Михаил</h1>
+        <div class="date">15 Августа 2024</div>
+    </header>
+
+    <section id="история" class="history">
+        <h2>История</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=1" alt="Первая встреча">
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=2" alt="Предложение">
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=3" alt="Помолвка">
+            </div>
+        </div>
+        <p class="story-text">
+            Наша история началась несколько лет назад... Это была любовь с первого взгляда, 
+            которая переросла в нечто большее. И теперь мы хотим разделить нашу радость с вами!
+        </p>
+    </section>
+
+    <section id="расписание" class="schedule">
+        <h2>Расписание</h2>
+        <div class="timeline">
+            <div class="event">
+                <i class="fas fa-church"></i>
+                <h3>Церемония</h3>
+                <p>14:00 - 15:00</p>
+                <p>Церковь Святого Михаила</p>
+                <p>ул. Пушкина, д. 10</p>
+            </div>
+            <div class="event">
+                <i class="fas fa-glass-cheers"></i>
+                <h3>Праздничный Ужин</h3>
+                <p>15:30 - 23:00</p>
+                <p>Гранд Плаза Отель</p>
+                <p>ул. Лермонтова, д. 15</p>
+            </div>
+            <div class="event">
+                <i class="fas fa-music"></i>
+                <h3>Вечерняя Программа</h3>
+                <p>19:00 - 23:00</p>
+                <p>Живая музыка, танцы</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="дресс-код" class="dress-code">
+        <h2>Дресс-код</h2>
+        <div class="dress-code-content">
+            <p>Элегантный вечерний</p>
+            <div class="dress-suggestions">
+                <div class="suggestion">
+                    <i class="fas fa-female"></i>
+                    <p>Дамы: Вечерние платья в пастельных тонах</p>
+                </div>
+                <div class="suggestion">
+                    <i class="fas fa-male"></i>
+                    <p>Господа: Костюмы темных оттенков</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="подарки" class="gifts">
+        <h2>Подарки</h2>
+        <p>Ваше присутствие на нашей свадьбе - самый лучший подарок!</p>
+        <p>Если вы хотите сделать нам подарок, мы будем благодарны за вклад в наше свадебное путешествие.</p>
+    </section>
+
+    <section id="rsvp" class="rsvp">
+        <h2>Подтверждение Присутствия</h2>
+        <form action="{{ url_for('rsvp') }}" method="POST" class="rsvp-form">
+            <div class="form-group">
+                <label for="name">Полное Имя</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Эл. почта</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="guests">Количество Гостей</label>
+                <input type="number" id="guests" name="guests" min="1" max="5" value="1">
+            </div>
+            <div class="form-group">
+                <label>Вы придёте?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="attending" value="yes" required>
+                        Да
+                    </label>
+                    <label>
+                        <input type="radio" name="attending" value="no">
+                        Нет
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+</main>
+{% endblock %}
